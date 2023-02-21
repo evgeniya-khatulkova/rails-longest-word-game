@@ -1,4 +1,8 @@
 <h2><%= @grid %></h2>
-<h3><%= @word %></h3>
-<h3><%= @score %></h3>
+<h3>Your word is:   <%= @word %></h3>
+<h3>Your score is: <%= @score %> points</h3>
 <p><%= @answer %></p>
+
+<%= link_to grid_path do%>
+  <p>Play ones more</p>
+<%end%>
