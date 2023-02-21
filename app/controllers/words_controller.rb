@@ -18,11 +18,12 @@ class WordsController < ApplicationController
     @user = JSON.parse(@user_serialized)
     if @user["found"] == false
       @answer = "You get 0 points! It is no an english word"
-    elsif include?(@word, @grid) == false
-      @answer = "Word is not matching the grid. You do not get any points"
+    elsif include?(@grid, @word) == false
+      @answer = "Word is not matching the grid"
     else
       @answer = "Good job. You are getting #{@word.length} points"
       @score += @word.length
+      session[:score] += @score
     end
     @answer
   end
@@ -30,8 +31,6 @@ class WordsController < ApplicationController
   def include?(grid, attempt)
     attempt.upcase.scan(/\w/).map do |letter|
       return false unless grid.include?(letter)
-
-      grid.delete_at(grid.index(letter))
     end
     true
   end
