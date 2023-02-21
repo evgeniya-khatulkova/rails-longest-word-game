@@ -1,9 +1,9 @@
-<h2><%= @grid %></h2>
+<h2 class="grid"><%= @grid %></h2>
 <h3>Your word is:   <%= @word %></h3>
 <h3>Your score is: <%= @score %> points</h3>
 <p><%= @answer %></p>
-<p><%= session[:score] %></p>
+<p>Current score:<%= session[:score] %></p>
 
 <%= link_to grid_path do%>
-  <p>Play ones more</p>
+  <p id="return-homepage">Play ones more</p>
 <%end%>

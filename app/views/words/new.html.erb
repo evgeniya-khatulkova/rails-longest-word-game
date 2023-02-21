@@ -1,10 +1,12 @@
-<%= @grid %>
-
 <h2>What is the biggest word you can make from these letters?</h2>
+<h2 class="grid"><%= @grid %></h2>
 
-<div class="input_box">
+<div id="box">
   <form action="score">
     <input type="text" name="word">
-    <input type="submit" value="Enter the word!">
+    <input type="submit" value="Take a try!">
     <%= hidden_field_tag "grid", @grid %>
   </form>
+</div>
+
+  <p>Current score: <%= session[:score] %></p>
